@@ -1,68 +1,60 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- Category: Epicodus;React;HTML/CSS/JS -->
+# Food Nutrient Balancer
 
-## Available Scripts
+An application to plan nutritionally balanced meals
 
-In the project directory, you can run:
+https://github.com/kentpmckinney/epi-capstone
 
-### `npm start`
+## Previewing this Project
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This project is hosted at: https://kentpmckinney.github.io/epi-capstone
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Working with the Source Code
 
-### `npm test`
+The following instructions explain how to set up a development environment for this project on MacOS. Steps will differ depending on the operating system.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+The following software must be installed and properly configured on the target machine. 
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+An updated web browser (Internet Explorer is not compatible)
+```
+```
+Node.js
+```
+```
+Git (optional but recommended)
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Setting up a Development Environment
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Download a copy of the source code from: https://github.com/kentpmckinney/epi-capstone
+   or clone using the repository link: https://github.com/kentpmckinney/epi-capstone.git
+2. Navigate to the folder location of the source files in Finder or in the Terminal
+3. Run the command `npm install` to download a local cache of the npm packages used by this application
+4. Build the application with the command `npm run build`
+5. Start the application with the command `npm run start`
 
-### `npm run eject`
+## Deployment
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Run the command 'npm run build' to create a production release of the application under ./build
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Technologies Used
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* JavaScript
+* HTML
+* CSS
+* React
+* Webpack
+* Babel
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Authors
 
-## Learn More
+Kent McKinney - [GitHub](https://github.com/kentpmckinney) - [LinkedIn](https://www.linkedin.com/in/kentpmckinney/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Copyright &copy; 2020 Kent P. McKinney
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Acknowledgments
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+https://www.learnhowtoprogram.com/react-part-time-react-track/react-with-nosql-part-2/react-with-nosql-independent-project
