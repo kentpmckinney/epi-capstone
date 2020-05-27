@@ -11,7 +11,7 @@ This project is hosted at: https://kentpmckinney.github.io/epi-capstone
 
 ## Wireframe and Component Diagram
 
-![Wireframe](https://kentpmckinney.github.io/epi-capstone/img/wireframe.png)
+(https://github.com/kentpmckinney/epi-capstone/blob/master/img/wireframe.png)
 
 
 ## Working with the Source Code
