@@ -9,6 +9,11 @@ https://github.com/kentpmckinney/epi-capstone
 
 This project is hosted at: https://kentpmckinney.github.io/epi-capstone
 
+## Wireframe and Component Diagram
+
+![Wireframe](https://kentpmckinney.github.io/epi-capstone/img/wireframe.png)
+
+
 ## Working with the Source Code
 
 The following instructions explain how to set up a development environment for this project on MacOS. Steps will differ depending on the operating system.
