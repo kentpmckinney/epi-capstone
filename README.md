@@ -13,6 +13,12 @@ Users include anyone wanting or needing to balance their diet according to scien
 It allows the user to create, organize, and track the foods they consume or plan to consume.
 The app shows the total nutrient composition and compares it to RDA recommendations.
 
+There is an API for the food data, but it is not a great choice for this project.
+If I use static data, it is easy to host and anyone can access and use it.
+I lack the time to set up a backend to proxy data from the API just to hide the key.
+What I may do if I have time is allow the user to enter their own API key.
+This would allow the user to pull in additional food items.
+
 ## Wireframe and Component Diagram
 
 https://github.com/kentpmckinney/epi-capstone/blob/master/img/wireframe.png
@@ -23,11 +29,11 @@ https://github.com/kentpmckinney/epi-capstone/blob/master/img/wireframe.png
 * Three routes showing three content screens
 * Pre-process USDA data with Python to cross-tabulate data into a single file
 * Import the data and populate the food list
-* Data includes only the core food list
+* Data includes only the core food 8000 foods
 * Retains user data in localStorage
-* User can add from among 8000 foods to a list
+* User can add a food item to a list
 * Adding foods to the list updates the Totals display
-* Display daily totals for the more common macro-nutrients, vitamins, and minerals
+* Totals display shows a few macro-nutrients, vitamins, and minerals
 
 ## Tools for Minimum Viable Product
 
@@ -36,20 +42,19 @@ https://fdc.nal.usda.gov/download-datasets.html (FNDDS 2015-2016)
 
 ## Additional Features
 
-* Tablet app layout
-* Desktop app layout
-* Add a 'Dark' theme
-* Add an 'about' page and an 'options' page
-* Add animations and responsiveness
 * Show RDA recommendations in the Totals display
 * Display totals for an extended set of nutrients and other useful attributes
-* Add additional foods
 * Allow user to specify foods they consumed on a given day
 * Keep a history of consumed foods
 * Allow user to group foods into recipes and meals
 * Allow user to add recipes and meals to the food list
 * Allow user to plan meals based on day of week
 * Totals component can display totals by day or week
+* Tablet app layout
+* Desktop app layout
+* Add a 'Dark' theme
+* Add an 'about' page and an 'options' page
+* Add animations and responsiveness
 * Split the data into two files: an index file and main file
 * Use profiling tools to assess app performance and resource usage
 * Identify ways to improve app efficiency
