@@ -26,7 +26,6 @@ https://github.com/kentpmckinney/epi-capstone/blob/master/img/wireframe.png
 ## Minimum Viable Product
 
 * Mobile app layout with 'light' theme
-* Three routes showing three content screens
 * Pre-process USDA data with Python to cross-tabulate data into a single file
 * Import the data and populate the food list
 * Data includes only the core food 8000 foods
@@ -43,6 +42,7 @@ https://fdc.nal.usda.gov/download-datasets.html (FNDDS 2015-2016)
 ## Additional Features
 
 * Show RDA recommendations in the Totals display
+* Create nice SVG icons to represent the three different UI panels
 * Display totals for an extended set of nutrients and other useful attributes
 * Allow user to specify foods they consumed on a given day
 * Keep a history of consumed foods
@@ -56,6 +56,7 @@ https://fdc.nal.usda.gov/download-datasets.html (FNDDS 2015-2016)
 * Add an 'about' page and an 'options' page
 * Add animations and responsiveness
 * Split the data into two files: an index file and main file
+* Drag and drop to add foods to the menu section and into recipes
 * Use profiling tools to assess app performance and resource usage
 * Identify ways to improve app efficiency
 * Enhance the pre-processing of data to prune unused data to reduce data footprint

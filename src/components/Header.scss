@@ -1,0 +1,41 @@
+.header {
+
+  background-color: #696B69;
+  color: white;
+
+  input {
+    width: 50vw;
+  }
+
+  button {
+    margin: 5px;
+  }
+
+  .header-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .tab-left {
+    grid-area: 1 / 1 / span 1 / span 1;
+    cursor: pointer;
+    user-select: none;
+    padding: 5px;
+  }
+
+  .tab-right {
+    grid-area: 1 / 2 / span 1 / span 1;
+    cursor: pointer;
+    user-select: none;
+    border-left: 2px solid #B3B7B4;
+    border-bottom: 2px solid #B3B7B4;
+    padding: 5px;
+  }
+
+  .header-content {
+    grid-area: 2 / 1 / span 1 / span 2;
+    margin: 5px;
+  }
+
+}
