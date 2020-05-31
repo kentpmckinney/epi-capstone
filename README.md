@@ -27,8 +27,8 @@ https://github.com/kentpmckinney/epi-capstone/blob/master/img/wireframe.png
 
 * Mobile app layout with 'light' theme
 * Pre-process USDA data with Python to cross-tabulate data into a single file
-* Import the data and populate the ingredient list
-* Data includes the core food 8600 ingredients
+* Import the data and populate the ingredient list √
+* Data includes the core food 8600 ingredients √
 * Retains user data in localStorage
 * User can add an ingredient to the "in effect" list
 * Adding ingredients to the "in effect" list updates the Totals display
