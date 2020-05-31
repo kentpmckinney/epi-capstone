@@ -27,11 +27,11 @@ https://github.com/kentpmckinney/epi-capstone/blob/master/img/wireframe.png
 
 * Mobile app layout with 'light' theme
 * Pre-process USDA data with Python to cross-tabulate data into a single file
-* Import the data and populate the food list
-* Data includes only the core food 8000 foods
+* Import the data and populate the ingredient list
+* Data includes the core food 8600 ingredients
 * Retains user data in localStorage
-* User can add a food item to a list
-* Adding foods to the list updates the Totals display
+* User can add an ingredient to the "in effect" list
+* Adding ingredients to the "in effect" list updates the Totals display
 * Totals display shows a few macro-nutrients, vitamins, and minerals
 
 ## Tools for Minimum Viable Product
@@ -41,21 +41,21 @@ https://fdc.nal.usda.gov/download-datasets.html (FNDDS 2015-2016)
 
 ## Additional Features
 
+* Ability to browse ingredients that are high or low in nutrients
 * Show RDA recommendations in the Totals display
 * Create nice SVG icons to represent the three different UI panels
 * Display totals for an extended set of nutrients and other useful attributes
 * Allow user to specify foods they consumed on a given day
 * Keep a history of consumed foods
-* Allow user to group foods into recipes and meals
-* Allow user to add recipes and meals to the food list
+* Allow user to group ingredients into recipes and meals
+* Allow user to add recipes and meals to the "in effect" list
 * Allow user to plan meals based on day of week
-* Totals component can display totals by day or week
+* Totals component can display totals by day or by week
 * Tablet app layout
 * Desktop app layout
 * Add a 'Dark' theme
 * Add an 'about' page and an 'options' page
 * Add animations and responsiveness
-* Split the data into two files: an index file and main file
 * Drag and drop to add foods to the menu section and into recipes
 * Use profiling tools to assess app performance and resource usage
 * Identify ways to improve app efficiency

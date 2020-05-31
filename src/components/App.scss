@@ -1,8 +1,10 @@
 .app {
 
+  height: 100%;
   padding: 5px;
 
   .grid {
+    height: 100%;
     display: grid;
     height: calc(100vh - 30px);
     width: calc(100vw - 30px);
@@ -17,14 +19,25 @@
   }
 
   .content-container {
+    height: 100%;
     grid-area: 2 / 1 / span 1 / span 1;
     background-color: #696B69;
     padding: 5px;
   }
 
   .content {
-    height: 100%;
+    height: calc(79vh - 40px);
+    overflow-y: scroll;
     background-color: #B3B7B4;
+  }
+
+  .ingredient {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .ingredient:hover {
+    font-weight: bold;
   }
 
   .footer {
