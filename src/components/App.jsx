@@ -12,8 +12,16 @@ import totalIcon from './total.svg';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.ingredients = <div>{ingredientList.map(i => <div className='ingredient' key={i[1]} id={i[1]}>{i[0]}</div>)}</div>
-    this.state = { view: {} };
+    this.ingredients = <div>
+      {ingredientList.map(i => <div className='ingredient' key={i[1]} onClick={
+        () => { this.onIngredientClick(i[1]) }
+      }>{i[0]}</div>)}
+    </div>
+    this.state = { view: {}, selectedFoodList: [] };
+  }
+
+  onIngredientClick = fdcId => {
+    this.setState({ selectedFoodList: [...this.state.selectedFoodList, { name: fdcId, qty: 1 }] });
   }
 
   onOrientationChange = () => {
@@ -27,8 +35,6 @@ class App extends React.Component {
       window.matchMedia("(min-width: 1024px) and (orientation: landscape)").matches;
     const isLargeScreenHeight = window.matchMedia("(min-height: 800px) and (orientation: portrait)").matches ||
       window.matchMedia("(min-height: 600px) and (orientation: landscape)").matches;
-    console.log(isLargeScreenWidth)
-    console.log(isLargeScreenHeight)
     const isLargeScreen = isLargeScreenWidth && isLargeScreenHeight;
     this.setState({ view: { ...this.state.view, isLargeScreen } });
   }
@@ -38,8 +44,6 @@ class App extends React.Component {
       window.matchMedia("(min-width: 1024px) and (orientation: landscape)").matches;
     const isLargeScreenHeight = window.matchMedia("(min-height: 800px) and (orientation: portrait)").matches ||
       window.matchMedia("(min-height: 600px) and (orientation: landscape)").matches;
-    console.log(isLargeScreenWidth)
-    console.log(isLargeScreenHeight)
     const isLargeScreen = isLargeScreenWidth && isLargeScreenHeight;
     this.setState({ view: { ...this.state.view, isLargeScreen } });
   }
@@ -66,8 +70,6 @@ class App extends React.Component {
       window.matchMedia("(min-width: 1024px) and (orientation: landscape)").matches;
     const isLargeScreenHeight = window.matchMedia("(min-height: 800px) and (orientation: portrait)").matches ||
       window.matchMedia("(min-height: 600px) and (orientation: landscape)").matches;
-    console.log(isLargeScreenWidth)
-    console.log(isLargeScreenHeight)
     const isLargeScreen = isLargeScreenWidth && isLargeScreenHeight;
     this.setState({ view: { isHandheld, isPortrait, isLargeScreen } });
   }
@@ -95,7 +97,13 @@ class App extends React.Component {
           <Switch>
             <Route path='/' exact>
               <div className="header">
-                <Header />
+                <Header>
+                  <div className="tab-left">Search</div>
+                  <div className="tab-right">Browse</div>
+                  <div className="header-content">
+                    <input /><button>Search</button>
+                  </div>
+                </Header>
               </div>
               <div className="content-container">
                 <div className="content">
@@ -105,7 +113,12 @@ class App extends React.Component {
               <div className="footer">{footer}</div>
             </Route>
             <Route path='/menu' exact>
-              <div className="header"><Header /></div>
+              <div className="header">
+                <Header>
+                  <div className="tab-left">Plan</div>
+                  <div className="tab-right">Track</div>
+                </Header>
+              </div>
               <div className="content-container">
                 <div className="content">
                   Menu
@@ -114,7 +127,11 @@ class App extends React.Component {
               <div className="footer">{footer}</div>
             </Route>
             <Route path='/totals' exact>
-              <div className="header"><Header /></div>
+              <div className="header">
+                <Header>
+                  <div className="tab-left">Totals</div>
+                </Header>
+              </div>
               <div className="content-container">
                 <div className="content">
                   Totals
@@ -133,13 +150,13 @@ class App extends React.Component {
   }
 
   showContent = () => {
-    console.log(this.state.view)
     const { isHandheld, isPortrait, isLargeScreen } = this.state.view;
     const content = this.viewHandheldPortrait();
     return content;
   }
 
   render = () => {
+    console.log(this.state)
     return <div className="app">{this.showContent()}</div>;
   }
 

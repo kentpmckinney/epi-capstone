@@ -25,7 +25,7 @@ https://github.com/kentpmckinney/epi-capstone/blob/master/img/wireframe.png
 
 ## Minimum Viable Product
 
-* Mobile app layout with 'light' theme
+* Mobile app layout with 'light' theme √
 * Pre-process USDA data with Python to cross-tabulate data into a single file
 * Import the data and populate the ingredient list √
 * Data includes the core food 8600 ingredients √

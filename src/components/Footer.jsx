@@ -4,7 +4,6 @@ import './Footer.scss';
 
 const Footer = props => {
 
-  console.log(props.links[0].img)
   return (
     <div className="footer">
       <div className="footer-grid">
