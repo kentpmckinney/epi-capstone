@@ -12,7 +12,8 @@ import totalIcon from './total.svg';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.ingredients = <div>
+    this.cache = {}
+    this.cache.ingredients = <div>
       {ingredientList.map(i => <div className='ingredient' key={i[1]} onClick={
         () => { this.onIngredientClick(i[1]) }
       }>{i[0]}</div>)}
@@ -21,7 +22,7 @@ class App extends React.Component {
   }
 
   onIngredientClick = fdcId => {
-    this.setState({ selectedFoodList: [...this.state.selectedFoodList, { name: fdcId, qty: 1 }] });
+    this.setState({ selectedFoodList: [...this.state.selectedFoodList, { fdcId, qty: 1 }] });
   }
 
   onOrientationChange = () => {
@@ -77,10 +78,12 @@ class App extends React.Component {
   componentDidMount = () => {
     this.setMediaQueryListeners();
     this.setInitialMediaQueryState();
+    const state = window.localStorage.getItem('state');
+    if (state) { this.setState(JSON.parse(state)) }
   }
 
   componentDidUpdate = () => {
-
+    if (this.state) { window.localStorage.setItem('state', JSON.stringify(this.state)); }
   }
 
   viewHandheldPortrait = () => {
@@ -107,7 +110,7 @@ class App extends React.Component {
               </div>
               <div className="content-container">
                 <div className="content">
-                  {this.ingredients}
+                  {this.cache.ingredients}
                 </div>
               </div>
               <div className="footer">{footer}</div>
@@ -121,7 +124,10 @@ class App extends React.Component {
               </div>
               <div className="content-container">
                 <div className="content">
-                  Menu
+                  {this.state.selectedFoodList.map((item, index) =>
+                    <div key={`foodlist-${index}`}>
+                      {ingredientList.filter(i => i[1] === item.fdcId)[0][0]} ({item.qty})
+                  </div>)}
                 </div>
               </div>
               <div className="footer">{footer}</div>
