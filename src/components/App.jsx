@@ -3,16 +3,20 @@ import { MemoryRouter, Switch, Route, Link } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import './App.scss';
-import ingredientList from './test.json';
+import ingredientList from '../data/dst/ingredients.json';
+import nutrientData from '../data/dst/nutrients.json';
 import searchIcon from './search.svg';
 import menuIcon from './menu.svg';
 import totalIcon from './total.svg';
 
-
 class App extends React.Component {
   constructor(props) {
+    // localStorage.clear()
+    console.log(ingredientList);
+    console.log(nutrientData);
     super(props);
     this.cache = {}
+    this.cache.nutrients = nutrientData;
     this.cache.ingredients = <div>
       {ingredientList.map(i => <div className='ingredient' key={i[1]} onClick={
         () => { this.onIngredientClick(i[1]) }
@@ -86,6 +90,62 @@ class App extends React.Component {
     if (this.state) { window.localStorage.setItem('state', JSON.stringify(this.state)); }
   }
 
+  getFoodNutrientData = fdcId => {
+    return this.cache.nutrients.filter(i => i[0] === fdcId);
+  }
+
+  getNutientIndex = nut => {
+    const header = this.cache.nutrients[0];
+    for (let i = 0; i < header.length; i++) {
+      if (header[i] === nut) { return i }
+    }
+  }
+
+  getUnit = nut => {
+    const units = this.cache.nutrients[1];
+    const index = this.getNutientIndex(nut);
+    return units[index];
+  }
+
+  getFoodMassInGrams = (fdcId, unit, qty) => {
+    const nutData = this.getFoodNutrientData(fdcId)
+    console.log('mass')
+    console.log(nutData)
+    // get the unit for the food
+    // convert to grams
+  }
+
+  getNutrientAmount = (fdcId, nut) => {
+    // get base nutrient amount
+    // convert amount to grams
+  }
+
+  calculateTotals = list => {
+    if (list && list.length > 0) {
+      this.getFoodMassInGrams(list[0].fdcId)
+      // given qty and unit of food, and amount of nutrient in a given amount of the food
+      // get mass by converting the qty from its unit into grams
+      // get the amount of the nutrient in one gram of the food
+      // multiply the two to get the final amount
+      // convert from grams to the default unit for the nutrient
+
+      const header = this.cache.nutrients[0];
+      // qty needs to be unit-converted and multiplied by the amount of the nutrient in the food
+      return header.map(nut => {
+        return { [nut]: list.reduce((a, c) => a + c.qty, 0) }
+      })
+    }
+  }
+
+  showTotals = () => {
+    const totals = this.calculateTotals(this.state.selectedFoodList);
+    if (totals && totals.length > 0) {
+      return totals.map((item, index) =>
+        <div key={`totals-${index}`}>{`${Object.keys(item)[0]} (${Object.values(item)[0]})`}</div>
+      )
+    }
+  }
+
   viewHandheldPortrait = () => {
 
     const footer = <Footer links={[
@@ -125,9 +185,7 @@ class App extends React.Component {
               <div className="content-container">
                 <div className="content">
                   {this.state.selectedFoodList.map((item, index) =>
-                    <div key={`foodlist-${index}`}>
-                      {ingredientList.filter(i => i[1] === item.fdcId)[0][0]} ({item.qty})
-                  </div>)}
+                    <div key={`foodlist-${index}`}>{ingredientList.filter(i => i[1] === item.fdcId)[0][0]} ({item.qty})</div>)}
                 </div>
               </div>
               <div className="footer">{footer}</div>
@@ -140,7 +198,7 @@ class App extends React.Component {
               </div>
               <div className="content-container">
                 <div className="content">
-                  Totals
+                  {this.showTotals()}
                 </div>
               </div>
               <div className="footer">{footer}</div>

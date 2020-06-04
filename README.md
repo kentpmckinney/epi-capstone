@@ -68,6 +68,30 @@ https://fdc.nal.usda.gov/download-datasets.html (FNDDS 2015-2016)
 
 Visual Studio Code Profiler, zlib, Firebase
 
+## Data
+
+--Source Files (parsed by the python script usda2js.py)
+   --food.csv--
+   "fdc_id","data_type","description","food_category_id","publication_date"
+   "167512","sr_legacy_food","Pillsbury Golden Layer Buttermilk Biscuits, Artificial Flavor, refrigerated dough","18","2019-04-01"
+
+   --nutrient.csv--
+   "id","name","unit_name","nutrient_nbr","rank"
+   "1002","Nitrogen","G","202","500"
+
+   --food_nutrient.csv--
+   "id","fdc_id","nutrient_id","amount","data_points","derivation_id","min","max","median","footnote","min_year_acquired"
+   "1283674","167512","1003","5.88","1","46","","","","",""
+
+--Destination Files (used by JavaScript)
+   --ingredients.json--
+   [["Pillsbury Golden Layer Buttermilk Biscuits, Artificial Flavor, refrigerated dough", "167512"], ...]
+
+   --nutrients.json--
+   first row = ['fdcId', ...names of nutrients]
+   second row = ['units' ...units for all the nutrients]
+   third+ row = an fdcId followed by its nutrient amounts (in the units specified in the second row)
+
 ## Previewing this Project
 
 This project is hosted at: https://kentpmckinney.github.io/epi-capstone
