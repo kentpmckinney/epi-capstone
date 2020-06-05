@@ -31,9 +31,12 @@ https://github.com/kentpmckinney/epi-capstone/blob/master/img/wireframe.png
 * Data includes the core food 8600 ingredients √
 * Retains user data in localStorage √
 * User can add an ingredient to the "in effect" list √
-* User can adjust the quantity and unit of ingredients in the list 
 * Adding ingredients to the "in effect" list updates the Totals display √
 * Totals display shows all nutrients, even those not commonly used  √
+* User can adjust the quantity and unit of ingredients in the list 
+* User can remove items from the list 
+* Uses prop types 
+* Has automated tests to validate data calculations 
 
 ## Tools for Minimum Viable Product
 
@@ -62,7 +65,6 @@ https://fdc.nal.usda.gov/download-datasets.html
 * Identify ways to improve app efficiency
 * Enhance the pre-processing of data to prune unused data to reduce data footprint √
 * Compress/decompress data to improve speed and/or reduce footprint
-* Tests to validate data against the USDA API
 * Retains user data in Firebase
 
 ## Tools for Additional Features
