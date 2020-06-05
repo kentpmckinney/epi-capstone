@@ -4,7 +4,6 @@ import './App.scss';
 
 class App extends React.Component {
   constructor(props) {
-    // localStorage.clear()
     super(props);
     this.state = { view: {} };
   }
@@ -62,12 +61,6 @@ class App extends React.Component {
   componentDidMount = () => {
     this.setMediaQueryListeners();
     this.setInitialMediaQueryState();
-    const state = window.localStorage.getItem('state');
-    if (state) { this.setState(JSON.parse(state)) }
-  }
-
-  componentDidUpdate = () => {
-    if (this.state) { window.localStorage.setItem('state', JSON.stringify(this.state)); }
   }
 
   showContent = () => {

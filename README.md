@@ -26,25 +26,25 @@ https://github.com/kentpmckinney/epi-capstone/blob/master/img/wireframe.png
 ## Minimum Viable Product
 
 * Mobile app layout with 'light' theme √
-* Pre-process USDA data with Python to cross-tabulate data into a single file
+* Pre-process USDA data with Python to cross-tabulate data into a single file √
 * Import the data and populate the ingredient list √
 * Data includes the core food 8600 ingredients √
 * Retains user data in localStorage √
 * User can add an ingredient to the "in effect" list √
-* Adding ingredients to the "in effect" list updates the Totals display
-* Totals display shows a few macro-nutrients, vitamins, and minerals
+* Adding ingredients to the "in effect" list updates the Totals display √
+* Totals display shows all nutrients, even those not commonly used  √
 
 ## Tools for Minimum Viable Product
 
 Visual Studio Code, Git, Node.js, React.js, HTML, SCSS, JavaScript, Python, Figma,
-https://fdc.nal.usda.gov/download-datasets.html (FNDDS 2015-2016)
+https://fdc.nal.usda.gov/download-datasets.html
 
 ## Additional Features
 
 * Ability to browse ingredients that are high or low in nutrients
 * Show RDA recommendations in the Totals display
-* Create nice SVG icons to represent the three different UI panels
-* Display totals for an extended set of nutrients and other useful attributes
+* Create nice SVG icons to represent the three different UI panels √
+* Restrict nutrient data to those that are more commonly understood
 * Allow user to specify foods they consumed on a given day
 * Keep a history of consumed foods
 * Allow user to group ingredients into recipes and meals
@@ -59,7 +59,7 @@ https://fdc.nal.usda.gov/download-datasets.html (FNDDS 2015-2016)
 * Drag and drop to add foods to the menu section and into recipes
 * Use profiling tools to assess app performance and resource usage
 * Identify ways to improve app efficiency
-* Enhance the pre-processing of data to prune unused data to reduce data footprint
+* Enhance the pre-processing of data to prune unused data to reduce data footprint √
 * Compress/decompress data to improve speed and/or reduce footprint
 * Tests to validate data against the USDA API
 * Retains user data in Firebase
