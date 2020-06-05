@@ -31,6 +31,7 @@ https://github.com/kentpmckinney/epi-capstone/blob/master/img/wireframe.png
 * Data includes the core food 8600 ingredients √
 * Retains user data in localStorage √
 * User can add an ingredient to the "in effect" list √
+* User can adjust the quantity and unit of ingredients in the list 
 * Adding ingredients to the "in effect" list updates the Totals display √
 * Totals display shows all nutrients, even those not commonly used  √
 
