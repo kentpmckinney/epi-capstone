@@ -40,7 +40,7 @@ export default class Data {
   }
 
   static getUnit = nutrientName => {
-    const units = _nutrients[1].filter(name => name != 'units');
+    const units = _nutrients[1].filter(name => name !== 'units');
     const index = this.getNutrientIndex(nutrientName);
     const unit = units[index];
     return this.parseUnitName(unit);

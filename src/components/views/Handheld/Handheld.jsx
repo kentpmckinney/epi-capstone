@@ -12,8 +12,6 @@ import './Handheld.scss';
 
 class Handheld extends React.Component {
   constructor(props) {
-    // localStorage.clear()
-
     super(props);
     this.ingredients = <div>
       {Data.ingredients.map(i => <div className='ingredient' key={i[1]} onClick={
@@ -133,7 +131,7 @@ class Handheld extends React.Component {
                 <div className="content">
                   {this.state.selectedFoodList.map(item =>
                     <div key={item.id} className='vertically-centered'>
-                      {Data.ingredients.filter(i => i[1] === item.fdcId)[0][0]} &nbsp; <input id={item.id} defaultValue={item.qty} onChange={this.onQuantityChange} /> &nbsp; {this.unitList(item.unit, () => { this.onUnitChange(item.id) })} &nbsp; <img className='minus-icon' src={minusIcon} onClick={() => { this.onRemoveItem(item.id) }} />
+                      {Data.ingredients.filter(i => i[1] === item.fdcId)[0][0]} &nbsp; <input id={item.id} defaultValue={item.qty} onChange={this.onQuantityChange} /> &nbsp; {this.unitList(item.unit, () => { this.onUnitChange(item.id) })} &nbsp; <img className='minus-icon' alt='' src={minusIcon} onClick={() => { this.onRemoveItem(item.id) }} />
                     </div>)}
                 </div>
               </div>

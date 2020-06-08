@@ -14,7 +14,6 @@ class App extends React.Component {
   }
 
   onScreenWidthChange = () => {
-    console.log('screen width change')
     const isLargeScreenWidth = window.matchMedia("(min-width: 768px) and (orientation: portrait)").matches ||
       window.matchMedia("(min-width: 1024px) and (orientation: landscape)").matches;
     const isLargeScreenHeight = window.matchMedia("(min-height: 800px) and (orientation: portrait)").matches ||
@@ -70,7 +69,6 @@ class App extends React.Component {
   }
 
   render = () => {
-    console.log(this.state)
     return <div className="app">{this.showContent()}</div>;
   }
 
