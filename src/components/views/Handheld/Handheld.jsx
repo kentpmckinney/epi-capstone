@@ -1,4 +1,5 @@
 import React from 'react';
+import { v4 } from 'uuid';
 import { MemoryRouter, Switch, Route, Link } from 'react-router-dom';
 import Data from '../../../data/Data.js';
 import Header from './Header';
@@ -70,21 +71,42 @@ class Handheld extends React.Component {
   }
 
   onIngredientClick = fdcId => {
-    this.setState({ selectedFoodList: [...this.state.selectedFoodList, { fdcId, qty: 100, unit: 'g' }] });
+    this.setState({ selectedFoodList: [...this.state.selectedFoodList, { fdcId, qty: 100, unit: 'g', id: v4() }] });
+  }
+
+  onUnitChange = id => {
+
+  }
+
+  onQuantityChange = event => {
+    const id = event.target.id;
+    const qty = event.target.value;
+    this.setState({ selectedFoodList: [...this.state.selectedFoodList.filter(i => i.id !== id), { ...this.state.selectedFoodList.filter(i => i.id === id)[0], qty: qty }] });
   }
 
   showTotals = () => {
-    const totals = Data.calculateTotals(this.state.selectedFoodList);
-    if (totals && totals.length > 0) {
-      return totals.map((item, index) =>
-        <div key={`totals-${index}`}>
-          {`${Object.keys(item)[0]} (${Object.values(item)[0]} ${Data.getUnit(Object.keys(item)[0])})`}
+    const totals = Data.calculateTotals(this.state.selectedFoodList) || [];
+    let output = []
+    for (let i = 1; i < totals.length; i++) {
+      output.push(
+        <div key={`totals-${i}`}>
+          {`${Object.keys(totals[i])[0]}: ${Object.values(totals[i])[0]}${Data.getUnit(Object.keys(totals[i])[0])}`}
         </div>
       )
     }
+    return output;
+  }
+
+  unitList = (selectedUnit, onChangeCallback) => {
+    return (
+      <select defaultValue={selectedUnit} onChange={onChangeCallback}>
+        {Data.getAllUnits().map(unit => <option key={unit} value={unit}>{unit}</option>)}
+      </select>
+    )
   }
 
   render() {
+    console.log(this.state.selectedFoodList)
     return (
       <div className="grid">
         <MemoryRouter>
@@ -100,9 +122,9 @@ class Handheld extends React.Component {
               <div className="header">{this.menuHeader()}</div>
               <div className="content-container">
                 <div className="content">
-                  {this.state.selectedFoodList.map((item, index) =>
-                    <div key={`foodlist-${index}`}>
-                      {Data.ingredients.filter(i => i[1] === item.fdcId)[0][0]} ({item.qty} {item.unit})
+                  {this.state.selectedFoodList.map(item =>
+                    <div key={item.id}>
+                      {Data.ingredients.filter(i => i[1] === item.fdcId)[0][0]} <input id={item.id} defaultValue={item.qty} onChange={this.onQuantityChange} /> {this.unitList(item.unit, () => { this.onUnitChange(item.id) })}
                     </div>)}
                 </div>
               </div>
