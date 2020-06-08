@@ -7,6 +7,8 @@ import Footer from './Footer';
 import searchIcon from './search.svg';
 import menuIcon from './menu.svg';
 import totalIcon from './total.svg';
+import minusIcon from './minus.svg';
+import './Handheld.scss';
 
 class Handheld extends React.Component {
   constructor(props) {
@@ -78,10 +80,18 @@ class Handheld extends React.Component {
 
   }
 
+  onRemoveItem = id => {
+    this.setState({ selectedFoodList: [...this.state.selectedFoodList.filter(i => i.id !== id)] });
+  }
+
   onQuantityChange = event => {
     const id = event.target.id;
     const qty = event.target.value;
-    this.setState({ selectedFoodList: [...this.state.selectedFoodList.filter(i => i.id !== id), { ...this.state.selectedFoodList.filter(i => i.id === id)[0], qty: qty }] });
+    if (qty === '') { return }
+    if (qty <= 0) { this.onRemoveItem(id) }
+    else {
+      this.setState({ selectedFoodList: [...this.state.selectedFoodList.filter(i => i.id !== id), { ...this.state.selectedFoodList.filter(i => i.id === id)[0], qty: qty }] });
+    }
   }
 
   showTotals = () => {
@@ -99,14 +109,13 @@ class Handheld extends React.Component {
 
   unitList = (selectedUnit, onChangeCallback) => {
     return (
-      <select defaultValue={selectedUnit} onChange={onChangeCallback}>
+      <select defaultValue={selectedUnit} onChange={onChangeCallback} disabled>
         {Data.getAllUnits().map(unit => <option key={unit} value={unit}>{unit}</option>)}
       </select>
     )
   }
 
   render() {
-    console.log(this.state.selectedFoodList)
     return (
       <div className="grid">
         <MemoryRouter>
@@ -123,8 +132,8 @@ class Handheld extends React.Component {
               <div className="content-container">
                 <div className="content">
                   {this.state.selectedFoodList.map(item =>
-                    <div key={item.id}>
-                      {Data.ingredients.filter(i => i[1] === item.fdcId)[0][0]} <input id={item.id} defaultValue={item.qty} onChange={this.onQuantityChange} /> {this.unitList(item.unit, () => { this.onUnitChange(item.id) })}
+                    <div key={item.id} className='vertically-centered'>
+                      {Data.ingredients.filter(i => i[1] === item.fdcId)[0][0]} &nbsp; <input id={item.id} defaultValue={item.qty} onChange={this.onQuantityChange} /> &nbsp; {this.unitList(item.unit, () => { this.onUnitChange(item.id) })} &nbsp; <img className='minus-icon' src={minusIcon} onClick={() => { this.onRemoveItem(item.id) }} />
                     </div>)}
                 </div>
               </div>

@@ -33,9 +33,9 @@ https://github.com/kentpmckinney/epi-capstone/blob/master/img/wireframe.png
 * User can add an ingredient to the "in effect" list √
 * Adding ingredients to the "in effect" list updates the Totals display √
 * Totals display shows all nutrients, even those not commonly used  √
-* User can adjust the quantity of ingredients in the list 
+* User can adjust the quantity of ingredients in the list √
 * The only unit is grams √
-* User can remove items from the list 
+* User can remove items from the list √
 * Uses prop types 
 * Has automated tests to validate data calculations 
 

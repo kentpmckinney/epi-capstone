@@ -1,0 +1,9 @@
+.minus-icon:hover {
+  filter: invert(0.5) saturate(5)  brightness(5)
+}
+
+.vertically-centered {
+  height: '32px';
+  display: 'flex';
+  align-items: 'center';
+}
