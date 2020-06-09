@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './Footer.scss';
 
 const Footer = props => {
@@ -13,6 +14,10 @@ const Footer = props => {
       </div>
     </div>
   )
+}
+
+Footer.propTypes = {
+  links: PropTypes.arrayOf(PropTypes.object)
 }
 
 export default Footer;

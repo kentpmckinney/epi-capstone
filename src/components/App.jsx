@@ -3,10 +3,7 @@ import Handheld from './views/Handheld/Handheld';
 import './App.scss';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { view: {} };
-  }
+  state = { view: {} };
 
   onOrientationChange = () => {
     const isPortrait = window.matchMedia("(orientation: portrait)").matches;
