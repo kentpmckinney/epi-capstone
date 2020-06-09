@@ -13,12 +13,12 @@ import './Handheld.scss';
 class Handheld extends React.Component {
   constructor(props) {
     super(props);
-    this.ingredients = <div>
-      {Data.ingredients.map(i => <div className='ingredient' key={i[1]} onClick={
-        () => { this.onIngredientClick(i[1]) }
-      }>{i[0]}</div>)}
-    </div>
-    this.state = { selectedFoodList: [] };
+    // this.ingredients = <div>
+    //   {Data.ingredients.map(i => <div className='ingredient' key={i[1]} onClick={
+    //     () => { this.onIngredientClick(i[1]) }
+    //   }>{i[0]}</div>)}
+    // </div>
+    this.state = { selectedFoodList: [], searchFilter: '' };
   }
 
   componentDidMount = () => {
@@ -47,7 +47,7 @@ class Handheld extends React.Component {
         <div className="tab-left">Search</div>
         <div className="tab-right">Browse</div>
         <div className="header-content">
-          <input /><button>Search</button>
+          <input id='search-term' /><button onClick={this.onSearchClick}>Search</button>
         </div>
       </Header>
     )
@@ -68,6 +68,33 @@ class Handheld extends React.Component {
         <div className="tab-left">Totals</div>
       </Header>
     )
+  }
+
+  ingredientsList = () => {
+    if (this.state.searchFilter) {
+      const filtered = Data.ingredients.filter(i => i[0].includes(this.state.searchFilter));
+      return (
+        filtered.map(i =>
+          <div className='ingredient' key={i[1]} onClick={
+            () => { this.onIngredientClick(i[1]) }
+          }>{i[0]}
+          </div>)
+      )
+    }
+    else {
+      return (
+        Data.ingredients.map(i =>
+          <div className='ingredient' key={i[1]} onClick={
+            () => { this.onIngredientClick(i[1]) }
+          }>{i[0]}
+          </div>)
+      )
+    }
+  }
+
+  onSearchClick = event => {
+    const filter = document.getElementById('search-term').value;
+    this.setState({ searchFilter: filter });
   }
 
   onIngredientClick = fdcId => {
@@ -119,9 +146,9 @@ class Handheld extends React.Component {
             <Route path='/' exact>
               <div className="header">{this.searchHeader()}</div>
               <div className="content-container">
-                <div className="content">{this.ingredients}</div>
+                <div className="content">{this.ingredientsList()}</div>
+                <div className="footer">{this.footer()}</div>
               </div>
-              <div className="footer">{this.footer()}</div>
             </Route>
             <Route path='/menu' exact>
               <div className="header">{this.menuHeader()}</div>
