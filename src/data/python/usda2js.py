@@ -54,7 +54,7 @@ with open(srcPath + "nutrient.csv", "r") as srcNutrientList:
     nutrientListReader = csv.reader(
         srcNutrientList.read().splitlines(), delimiter=',', quotechar='"')
     nutrientList = sorted(nutrientListReader,
-                          key=lambda row: row[0], reverse=False)
+                          key=lambda row: row[1], reverse=False)
     del nutrientListReader
 
 # Read and sort data from food.csv (list of foods)
@@ -62,7 +62,7 @@ with open(srcPath + "food.csv", "r") as srcFoods:
     null = srcFoods.readline()  # discard header
     foodReader = csv.reader(srcFoods.read().splitlines(),
                             delimiter=',', quotechar='"')
-    foodList = sorted(foodReader, key=lambda row: row[0], reverse=False)
+    foodList = sorted(foodReader, key=lambda row: row[2], reverse=False)
     del foodReader
     numFoods = sum(1 for line in foodList)
 
@@ -157,6 +157,7 @@ with open(dstPath + "nutrients.json", "w") as nutrientsFile:
             nutDataRow[0] = fdcId
     json.dump(nutdata, nutrientsFile, indent=None, separators=(',', ':'))
 del nutdata
+
 
 # region Post-Parse
 ###########################################################################

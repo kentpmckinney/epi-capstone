@@ -7,18 +7,16 @@ export default class Data {
   static get nutrients() { return _nutrients }
 
   static calculateTotals = list => {
-    if (list && list.length > 0) {
-
-      list = list.map(item => {
-        return { fdcId: item.fdcId, qty: item.qty, unit: item.unit, factor: this.grams(item.qty, item.unit) / 100 }
+    const header = _nutrients[0];
+    let output = [];
+    for (let i = 1; i < header.length; i++) {
+      let nutrientTotal = 0;
+      list.forEach(item => {
+        nutrientTotal += item.qty * this.amount(item.fdcId, header[i]) / 100;
       })
-
-      const header = _nutrients[0];
-      return header.map(nutrient => {
-        return { [nutrient]: list.reduce((a, c) => a + c.factor * this.amount(c.fdcId, nutrient), 0) }
-      })
-
+      output.push([header[i], nutrientTotal])
     }
+    return output;
   }
 
   static grams = (qty, unit) => {
@@ -41,15 +39,11 @@ export default class Data {
 
   static getUnit = nutrientName => {
     const units = _nutrients[1].filter(name => name !== 'units');
-    const index = this.getNutrientIndex(nutrientName);
+    const index = this.getNutrientIndex(nutrientName) - 1;
     const unit = units[index];
     return this.parseUnitName(unit);
   }
 
-  static getAllUnits = () => {
-    const units = _nutrients[1];
-    return [...new Set(units.map(unit => Data.parseUnitName(unit)))]
-  }
 
   static parseUnitName = unitName => {
     switch (unitName) {

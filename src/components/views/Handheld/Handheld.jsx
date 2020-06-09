@@ -1,6 +1,6 @@
 import React from 'react';
 import { v4 } from 'uuid';
-import { MemoryRouter, Switch, Route, Link } from 'react-router-dom';
+import { MemoryRouter, Switch, Route } from 'react-router-dom';
 import Data from '../../../data/Data.js';
 import Header from './Header';
 import Footer from './Footer';
@@ -71,15 +71,17 @@ class Handheld extends React.Component {
   }
 
   onIngredientClick = fdcId => {
-    this.setState({ selectedFoodList: [...this.state.selectedFoodList, { fdcId, qty: 100, unit: 'g', id: v4() }] });
-  }
-
-  onUnitChange = id => {
-
+    this.setState({
+      selectedFoodList:
+        [...this.state.selectedFoodList, { fdcId, qty: 100, unit: 'g', id: v4() }]
+    });
   }
 
   onRemoveItem = id => {
-    this.setState({ selectedFoodList: [...this.state.selectedFoodList.filter(i => i.id !== id)] });
+    this.setState({
+      selectedFoodList:
+        [...this.state.selectedFoodList.filter(i => i.id !== id)]
+    });
   }
 
   onQuantityChange = event => {
@@ -88,29 +90,25 @@ class Handheld extends React.Component {
     if (qty === '') { return }
     if (qty <= 0) { this.onRemoveItem(id) }
     else {
-      this.setState({ selectedFoodList: [...this.state.selectedFoodList.filter(i => i.id !== id), { ...this.state.selectedFoodList.filter(i => i.id === id)[0], qty: qty }] });
+      this.setState({
+        selectedFoodList:
+          [...this.state.selectedFoodList.filter(i => i.id !== id), { ...this.state.selectedFoodList.filter(i => i.id === id)[0], qty: qty }]
+      }
+      );
     }
   }
 
   showTotals = () => {
     const totals = Data.calculateTotals(this.state.selectedFoodList) || [];
-    let output = []
-    for (let i = 1; i < totals.length; i++) {
-      output.push(
-        <div key={`totals-${i}`}>
-          {`${Object.keys(totals[i])[0]}: ${Object.values(totals[i])[0]}${Data.getUnit(Object.keys(totals[i])[0])}`}
-        </div>
+    return totals.map((e, i) => {
+      const nutrient = e[0];
+      const nutrientTotal = e[1];
+      return (
+        <tr key={`totals-${i}`}>
+          <td>{nutrient}</td><td>{`${nutrientTotal.toFixed(2)}${Data.getUnit(nutrient)}`}</td>
+        </tr>
       )
-    }
-    return output;
-  }
-
-  unitList = (selectedUnit, onChangeCallback) => {
-    return (
-      <select defaultValue={selectedUnit} onChange={onChangeCallback} disabled>
-        {Data.getAllUnits().map(unit => <option key={unit} value={unit}>{unit}</option>)}
-      </select>
-    )
+    })
   }
 
   render() {
@@ -131,8 +129,12 @@ class Handheld extends React.Component {
                 <div className="content">
                   {this.state.selectedFoodList.map(item =>
                     <div key={item.id} className='vertically-centered'>
-                      {Data.ingredients.filter(i => i[1] === item.fdcId)[0][0]} &nbsp; <input id={item.id} defaultValue={item.qty} onChange={this.onQuantityChange} /> &nbsp; {this.unitList(item.unit, () => { this.onUnitChange(item.id) })} &nbsp; <img className='minus-icon' alt='' src={minusIcon} onClick={() => { this.onRemoveItem(item.id) }} />
-                    </div>)}
+                      {Data.ingredients.filter(i =>
+                        i[1] === item.fdcId)[0][0]} &nbsp;
+                        <input id={item.id} defaultValue={item.qty} onChange={this.onQuantityChange} />g &nbsp;
+                        <img className='minus-icon' alt='' src={minusIcon} onClick={() => { this.onRemoveItem(item.id) }} />
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="footer">{this.footer()}</div>
@@ -140,7 +142,9 @@ class Handheld extends React.Component {
             <Route path='/totals' exact>
               <div className="header">{this.totalsHeader()}</div>
               <div className="content-container">
-                <div className="content">{this.showTotals()}</div>
+                <div className="content">
+                  <table><tbody>{this.showTotals()}</tbody></table>
+                </div>
               </div>
               <div className="footer">{this.footer()}</div>
             </Route>
