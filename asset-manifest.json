@@ -1,22 +1,26 @@
 {
   "files": {
-    "main.css": "/epi-capstone/static/css/main.0bea128a.chunk.css",
-    "main.js": "/epi-capstone/static/js/main.057c51fe.chunk.js",
-    "main.js.map": "/epi-capstone/static/js/main.057c51fe.chunk.js.map",
+    "main.css": "/epi-capstone/static/css/main.b0c9301f.chunk.css",
+    "main.js": "/epi-capstone/static/js/main.3237689d.chunk.js",
+    "main.js.map": "/epi-capstone/static/js/main.3237689d.chunk.js.map",
     "runtime-main.js": "/epi-capstone/static/js/runtime-main.19c1b83a.js",
     "runtime-main.js.map": "/epi-capstone/static/js/runtime-main.19c1b83a.js.map",
-    "static/js/2.89ecbe6d.chunk.js": "/epi-capstone/static/js/2.89ecbe6d.chunk.js",
-    "static/js/2.89ecbe6d.chunk.js.map": "/epi-capstone/static/js/2.89ecbe6d.chunk.js.map",
+    "static/js/2.58429147.chunk.js": "/epi-capstone/static/js/2.58429147.chunk.js",
+    "static/js/2.58429147.chunk.js.map": "/epi-capstone/static/js/2.58429147.chunk.js.map",
     "index.html": "/epi-capstone/index.html",
-    "precache-manifest.34ff802187f075bb04344886cec911b4.js": "/epi-capstone/precache-manifest.34ff802187f075bb04344886cec911b4.js",
+    "precache-manifest.d918efefafc31e1c4b21ec77ca784d8b.js": "/epi-capstone/precache-manifest.d918efefafc31e1c4b21ec77ca784d8b.js",
     "service-worker.js": "/epi-capstone/service-worker.js",
-    "static/css/main.0bea128a.chunk.css.map": "/epi-capstone/static/css/main.0bea128a.chunk.css.map",
-    "static/js/2.89ecbe6d.chunk.js.LICENSE.txt": "/epi-capstone/static/js/2.89ecbe6d.chunk.js.LICENSE.txt"
+    "static/css/main.b0c9301f.chunk.css.map": "/epi-capstone/static/css/main.b0c9301f.chunk.css.map",
+    "static/js/2.58429147.chunk.js.LICENSE.txt": "/epi-capstone/static/js/2.58429147.chunk.js.LICENSE.txt",
+    "static/media/menu.svg": "/epi-capstone/static/media/menu.e7db0487.svg",
+    "static/media/minus.svg": "/epi-capstone/static/media/minus.94ddb404.svg",
+    "static/media/search.svg": "/epi-capstone/static/media/search.3c838abc.svg",
+    "static/media/total.svg": "/epi-capstone/static/media/total.b63320c9.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.19c1b83a.js",
-    "static/js/2.89ecbe6d.chunk.js",
-    "static/css/main.0bea128a.chunk.css",
-    "static/js/main.057c51fe.chunk.js"
+    "static/js/2.58429147.chunk.js",
+    "static/css/main.b0c9301f.chunk.css",
+    "static/js/main.3237689d.chunk.js"
   ]
 }
