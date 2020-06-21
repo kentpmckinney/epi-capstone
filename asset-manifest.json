@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/epi-capstone/static/css/main.b0c9301f.chunk.css",
-    "main.js": "/epi-capstone/static/js/main.3237689d.chunk.js",
-    "main.js.map": "/epi-capstone/static/js/main.3237689d.chunk.js.map",
+    "main.js": "/epi-capstone/static/js/main.4894f745.chunk.js",
+    "main.js.map": "/epi-capstone/static/js/main.4894f745.chunk.js.map",
     "runtime-main.js": "/epi-capstone/static/js/runtime-main.19c1b83a.js",
     "runtime-main.js.map": "/epi-capstone/static/js/runtime-main.19c1b83a.js.map",
     "static/js/2.58429147.chunk.js": "/epi-capstone/static/js/2.58429147.chunk.js",
     "static/js/2.58429147.chunk.js.map": "/epi-capstone/static/js/2.58429147.chunk.js.map",
     "index.html": "/epi-capstone/index.html",
-    "precache-manifest.d918efefafc31e1c4b21ec77ca784d8b.js": "/epi-capstone/precache-manifest.d918efefafc31e1c4b21ec77ca784d8b.js",
+    "precache-manifest.b2e568277fd43731306bc21c8360270b.js": "/epi-capstone/precache-manifest.b2e568277fd43731306bc21c8360270b.js",
     "service-worker.js": "/epi-capstone/service-worker.js",
     "static/css/main.b0c9301f.chunk.css.map": "/epi-capstone/static/css/main.b0c9301f.chunk.css.map",
     "static/js/2.58429147.chunk.js.LICENSE.txt": "/epi-capstone/static/js/2.58429147.chunk.js.LICENSE.txt",
@@ -21,6 +21,6 @@
     "static/js/runtime-main.19c1b83a.js",
     "static/js/2.58429147.chunk.js",
     "static/css/main.b0c9301f.chunk.css",
-    "static/js/main.3237689d.chunk.js"
+    "static/js/main.4894f745.chunk.js"
   ]
 }
