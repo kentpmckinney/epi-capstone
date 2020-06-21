@@ -47,10 +47,6 @@ export default class Data {
 
   static parseUnitName = unitName => {
     switch (unitName) {
-      case 'G': return 'g';
-      case 'MG': return 'mg';
-      case 'UG': return 'μg';
-      case 'KCAL': return 'kcal';
       case 'IU': return 'IU';
       case 'kJ': return 'kJ';
       default: return unitName ? unitName.toLowerCase() : unitName;

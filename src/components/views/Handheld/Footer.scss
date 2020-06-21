@@ -45,4 +45,8 @@
     filter: invert(0.5) saturate(5)  brightness(5)
   }
 
+  .active {
+    filter: sepia(200)
+  }
+
 }

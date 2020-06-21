@@ -36,8 +36,6 @@ https://github.com/kentpmckinney/epi-capstone/blob/master/img/wireframe.png
 * User can adjust the quantity of ingredients in the list √
 * The only unit is grams √
 * User can remove items from the list √
-* Uses prop types 
-* Has automated tests to validate data calculations 
 
 ## Tools for Minimum Viable Product
 
@@ -46,9 +44,12 @@ https://fdc.nal.usda.gov/download-datasets.html
 
 ## Additional Features
 
+* Uses prop types √
+* Create SVG icons to represent the three different UI panels √
+* Enhance the pre-processing of data to prune unused data to reduce data footprint √
+* Has automated tests to validate data calculations 
 * Ability to browse ingredients that are high or low in nutrients
 * Show RDA recommendations in the Totals display
-* Create nice SVG icons to represent the three different UI panels √
 * Restrict nutrient data to those that are more commonly understood
 * Allow user to specify foods they consumed on a given day
 * Keep a history of consumed foods
@@ -64,7 +65,6 @@ https://fdc.nal.usda.gov/download-datasets.html
 * Drag and drop to add foods to the menu section and into recipes
 * Use profiling tools to assess app performance and resource usage
 * Identify ways to improve app efficiency
-* Enhance the pre-processing of data to prune unused data to reduce data footprint √
 * Compress/decompress data to improve speed and/or reduce footprint
 * Retains user data in Firebase
 
